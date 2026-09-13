@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>দক্ষিণ কেবল নগর</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:Arial,"Noto Sans Bengali",sans-serif;background:#f5f7fb;color:#172033}
+header{background:linear-gradient(135deg,#087f5b,#0b5ed7);color:white;padding:28px 16px;text-align:center}
+header h1{margin:0;font-size:30px}header p{margin:8px 0 0}
+nav{background:#fff;display:flex;gap:8px;overflow:auto;padding:10px;position:sticky;top:0;z-index:5;box-shadow:0 2px 10px #0001}
+nav a{white-space:nowrap;text-decoration:none;color:#17324d;padding:9px 12px;border-radius:20px;background:#eef3f8}
+.container{max-width:1000px;margin:auto;padding:18px}
+.hero,.card{background:#fff;border-radius:16px;padding:20px;margin:15px 0;box-shadow:0 4px 18px #0000000b}
+.hero{background:linear-gradient(135deg,#e9fff6,#eef5ff)}
+h2{margin-top:0}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+.item{padding:16px;border:1px solid #e6ebf2;border-radius:12px}
+button,.btn{border:0;border-radius:10px;padding:12px 16px;background:#087f5b;color:#fff;cursor:pointer;text-decoration:none;display:inline-block}
+input,textarea,select{width:100%;padding:12px;border:1px solid #d8dee8;border-radius:10px;margin:6px 0 12px;font-size:15px}
+textarea{min-height:110px}label{font-weight:bold}
+.news{border-left:4px solid #0b5ed7;padding-left:14px;margin:14px 0}.muted{color:#667085}
+footer{background:#172033;color:#fff;text-align:center;padding:25px;margin-top:30px}
+.notice{background:#fff3cd;padding:12px;border-radius:10px}
+</style>
+</head>
+<body>
+<header>
+<h1>দক্ষিণ কেবল নগর</h1>
+<p>আমাদের এলাকার তথ্য, সংবাদ, সেবা ও নাগরিক অংশগ্রহণের একটি অনলাইন প্ল্যাটফর্ম</p>
+</header>
+<nav>
+<a href="#home">হোম</a><a href="#news">দৈনিক নিউজ</a><a href="#member">সদস্য হোন</a>
+<a href="#complaint">অভিযোগ জানান</a><a href="#info">এলাকার তথ্য</a><a href="admin.html">🔐 Admin</a>
+</nav>
+<div class="container" id="home">
+<section class="hero">
+<h2>স্বাগতম দক্ষিণ কেবল নগর</h2>
+<p>এখানে এলাকার গুরুত্বপূর্ণ খবর, ঘোষণা, প্রয়োজনীয় তথ্য এবং নাগরিকদের মতামত ও অভিযোগ জানানো যাবে।</p>
+<a class="btn" href="#complaint">অন্যায়/অনিয়ম জানান</a>
+</section>
+
+<section class="card" id="news">
+<h2>📰 আজকের নিউজ</h2>
+<div id="newsList"></div>
+</section>
+
+<section class="card" id="member">
+<h2>👥 সদস্য নিবন্ধন</h2>
+<p class="muted">সদস্য হওয়ার জন্য নিচের তথ্য দিন। সংবেদনশীল ব্যক্তিগত তথ্য প্রকাশ করা হবে না।</p>
+<form id="memberForm">
+<label>নাম</label><input id="mname" required>
+<label>মোবাইল নম্বর</label><input id="mphone" required>
+<label>ঠিকানা</label><input id="maddress" required>
+<label>পেশা</label><input id="mjob">
+<button>সদস্য আবেদন পাঠান</button>
+</form>
+<p id="memberMsg"></p>
+</section>
+
+<section class="card" id="complaint">
+<h2>🚨 অন্যায়/অনিয়ম জানান</h2>
+<div class="notice">মিথ্যা বা উদ্দেশ্যপ্রণোদিত অভিযোগ না করে যাচাইযোগ্য তথ্য দিন। অভিযোগ প্রকাশের আগে অ্যাডমিন যাচাই করবেন।</div>
+<form id="complaintForm">
+<label>অভিযোগের ধরন</label>
+<select id="ctype"><option>রাস্তা/ড্রেনেজ</option><option>পানি/বিদ্যুৎ</option><option>মাদক</option><option>চুরি/নিরাপত্তা</option><option>দুর্নীতি/অনিয়ম</option><option>সামাজিক সমস্যা</option><option>অন্যান্য</option></select>
+<label>ঘটনার স্থান</label><input id="clocation" required>
+<label>বিস্তারিত</label><textarea id="cdesc" required></textarea>
+<label>আপনার নাম (ঐচ্ছিক)</label><input id="cname">
+<label>মোবাইল (ঐচ্ছিক)</label><input id="cphone">
+<button>অভিযোগ পাঠান</button>
+</form>
+<p id="complaintMsg"></p>
+</section>
+
+<section class="card" id="info">
+<h2>📍 এলাকার তথ্য</h2>
+<div class="grid">
+<div class="item"><b>🏫 শিক্ষা</b><p>এখানে এলাকার স্কুল, কলেজ ও শিক্ষা প্রতিষ্ঠানের তথ্য যোগ করা যাবে।</p></div>
+<div class="item"><b>🏥 স্বাস্থ্য</b><p>হাসপাতাল, ক্লিনিক, ফার্মেসি ও জরুরি স্বাস্থ্যসেবার তথ্য যোগ করা যাবে।</p></div>
+<div class="item"><b>🕌 ধর্মীয় প্রতিষ্ঠান</b><p>মসজিদ ও অন্যান্য স্থানীয় প্রতিষ্ঠানের তথ্য যোগ করা যাবে।</p></div>
+<div class="item"><b>☎️ জরুরি যোগাযোগ</b><p>প্রয়োজনীয় ফোন নম্বর ও সেবার তথ্য এখানে প্রকাশ করা যাবে।</p></div>
+</div>
+</section>
+</div>
+<footer>Web Creator : Helal Ahmed</footer>
+
+<script>
+const get=(k)=>JSON.parse(localStorage.getItem(k)||"[]");
+function renderNews(){
+ const list=get("dkn_news"); const box=document.getElementById("newsList");
+ box.innerHTML=list.length?list.map(n=>`<div class="news"><h3>${esc(n.title)}</h3><p>${esc(n.body)}</p><small class="muted">${esc(n.date)}</small></div>`).join(""):"<p class='muted'>এখনও কোনো নিউজ প্রকাশ করা হয়নি। Admin Panel থেকে নিউজ যোগ করুন।</p>";
+}
+function esc(s){return String(s||"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]))}
+document.getElementById("memberForm").onsubmit=e=>{e.preventDefault();let a=get("dkn_members");a.push({name:mname.value,phone:mphone.value,address:maddress.value,job:mjob.value,date:new Date().toLocaleString("bn-BD")});localStorage.setItem("dkn_members",JSON.stringify(a));e.target.reset();memberMsg.textContent="✅ সদস্য আবেদন গ্রহণ করা হয়েছে।";};
+document.getElementById("complaintForm").onsubmit=e=>{e.preventDefault();let a=get("dkn_complaints");a.push({type:ctype.value,location:clocation.value,desc:cdesc.value,name:cname.value,phone:cphone.value,date:new Date().toLocaleString("bn-BD")});localStorage.setItem("dkn_complaints",JSON.stringify(a));e.target.reset();complaintMsg.textContent="✅ অভিযোগ গ্রহণ করা হয়েছে। অ্যাডমিন যাচাই করবেন।";};
+renderNews();
+</script>
+</body>
+</html>

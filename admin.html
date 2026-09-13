@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="bn"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Admin Panel — দক্ষিণ কেবল নগর</title>
+<style>
+body{margin:0;background:#f4f6fa;font-family:Arial,"Noto Sans Bengali",sans-serif;color:#182230}.wrap{max-width:1000px;margin:auto;padding:18px}.box{background:#fff;padding:20px;border-radius:15px;margin:15px 0;box-shadow:0 4px 16px #0001}input,textarea{width:100%;box-sizing:border-box;padding:11px;margin:6px 0 12px;border:1px solid #d5dce5;border-radius:9px}button{padding:11px 15px;border:0;border-radius:9px;background:#087f5b;color:#fff;cursor:pointer;margin-right:6px}.danger{background:#c92a2a}.tab{margin-bottom:15px}.entry{border:1px solid #e1e6ee;padding:14px;border-radius:10px;margin:10px 0}.muted{color:#667085}.hidden{display:none}
+</style></head><body><div class="wrap">
+<div class="box" id="login">
+<h2>🔐 দক্ষিণ কেবল নগর — Admin Login</h2>
+<p class="muted">ডেমো Admin Panel-এর পাসওয়ার্ড: <b>1234</b></p>
+<input id="pass" type="password" placeholder="Password"><button onclick="login()">Login</button><p id="err"></p>
+</div>
+<div id="panel" class="hidden">
+<div class="box"><h1>Admin Panel</h1><button onclick="logout()">Logout</button> <a href="index.html">ওয়েবসাইট দেখুন</a></div>
+<div class="box"><h2>📰 নতুন নিউজ প্রকাশ</h2><input id="ntitle" placeholder="নিউজের শিরোনাম"><textarea id="nbody" placeholder="নিউজের বিস্তারিত"></textarea><button onclick="addNews()">নিউজ প্রকাশ করুন</button></div>
+<div class="box"><h2>📰 প্রকাশিত নিউজ</h2><div id="news"></div></div>
+<div class="box"><h2>👥 সদস্য আবেদন</h2><div id="members"></div></div>
+<div class="box"><h2>🚨 অভিযোগ</h2><div id="complaints"></div></div>
+</div></div>
+<script>
+const get=k=>JSON.parse(localStorage.getItem(k)||"[]"), set=(k,v)=>localStorage.setItem(k,JSON.stringify(v));
+function login(){if(pass.value==="1234"){loginBox();}else err.textContent="❌ ভুল পাসওয়ার্ড";}
+function loginBox(){login.classList.add("hidden");panel.classList.remove("hidden");render();}
+function logout(){panel.classList.add("hidden");login.classList.remove("hidden")}
+function addNews(){if(!ntitle.value||!nbody.value)return;let a=get("dkn_news");a.unshift({title:ntitle.value,body:nbody.value,date:new Date().toLocaleString("bn-BD")});set("dkn_news",a);ntitle.value=nbody.value="";render()}
+function render(){
+news.innerHTML=get("dkn_news").map((x,i)=>`<div class="entry"><b>${esc(x.title)}</b><p>${esc(x.body)}</p><small>${esc(x.date)}</small> <button class="danger" onclick="del('dkn_news',${i})">মুছুন</button></div>`).join("")||"কোনো নিউজ নেই";
+members.innerHTML=get("dkn_members").map((x,i)=>`<div class="entry"><b>${esc(x.name)}</b><br>মোবাইল: ${esc(x.phone)}<br>ঠিকানা: ${esc(x.address)}<br>পেশা: ${esc(x.job)}<br><small>${esc(x.date)}</small> <button class="danger" onclick="del('dkn_members',${i})">মুছুন</button></div>`).join("")||"কোনো সদস্য আবেদন নেই";
+complaints.innerHTML=get("dkn_complaints").map((x,i)=>`<div class="entry"><b>${esc(x.type)}</b><br>স্থান: ${esc(x.location)}<p>${esc(x.desc)}</p>নাম: ${esc(x.name||"গোপন")}<br>মোবাইল: ${esc(x.phone||"দেওয়া হয়নি")}<br><small>${esc(x.date)}</small> <button class="danger" onclick="del('dkn_complaints',${i})">মুছুন</button></div>`).join("")||"কোনো অভিযোগ নেই";
+}
+function del(k,i){if(confirm("মুছে ফেলবেন?")){let a=get(k);a.splice(i,1);set(k,a);render()}}
+function esc(s){return String(s||"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]))}
+</script></body></html>
