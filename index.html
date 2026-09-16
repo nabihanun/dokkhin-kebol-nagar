@@ -15,6 +15,7 @@ nav a{white-space:nowrap;text-decoration:none;color:#17324d;padding:9px 12px;bor
 .hero{background:linear-gradient(135deg,#e9fff6,#eef5ff)}
 h2{margin-top:0}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
 .item{padding:16px;border:1px solid #e6ebf2;border-radius:12px}
+.item h3{margin-top:0}.item p{line-height:1.7}.item ul{padding-left:22px;line-height:2}
 button,.btn{border:0;border-radius:10px;padding:12px 16px;background:#087f5b;color:#fff;cursor:pointer;text-decoration:none;display:inline-block}
 input,textarea,select{width:100%;padding:12px;border:1px solid #d8dee8;border-radius:10px;margin:6px 0 12px;font-size:15px}
 textarea{min-height:110px}label{font-weight:bold}
@@ -52,7 +53,7 @@ footer{background:#172033;color:#fff;text-align:center;padding:25px;margin-top:3
 <label>মোবাইল নম্বর</label><input id="mphone" required>
 <label>ঠিকানা</label><input id="maddress" required>
 <label>পেশা</label><input id="mjob">
-<button>সদস্য আবেদন পাঠান</button>
+<button type="submit">সদস্য আবেদন পাঠান</button>
 </form>
 <p id="memberMsg"></p>
 </section>
@@ -67,32 +68,110 @@ footer{background:#172033;color:#fff;text-align:center;padding:25px;margin-top:3
 <label>বিস্তারিত</label><textarea id="cdesc" required></textarea>
 <label>আপনার নাম (ঐচ্ছিক)</label><input id="cname">
 <label>মোবাইল (ঐচ্ছিক)</label><input id="cphone">
-<button>অভিযোগ পাঠান</button>
+<button type="submit">অভিযোগ পাঠান</button>
 </form>
 <p id="complaintMsg"></p>
 </section>
 
 <section class="card" id="info">
-<h2>📍 এলাকার তথ্য</h2>
+<h2>📍 আমাদের এলাকার তথ্য</h2>
+<p class="muted">দক্ষিণ কেবল নগর এলাকার শিক্ষা প্রতিষ্ঠান, ধর্মীয় প্রতিষ্ঠান এবং গুরুত্বপূর্ণ স্থানসমূহের তথ্য।</p>
 <div class="grid">
-<div class="item"><b>🏫 শিক্ষা</b><p>এখানে এলাকার স্কুল, কলেজ ও শিক্ষা প্রতিষ্ঠানের তথ্য যোগ করা যাবে।</p></div>
-<div class="item"><b>🏥 স্বাস্থ্য</b><p>হাসপাতাল, ক্লিনিক, ফার্মেসি ও জরুরি স্বাস্থ্যসেবার তথ্য যোগ করা যাবে।</p></div>
-<div class="item"><b>🕌 ধর্মীয় প্রতিষ্ঠান</b><p>মসজিদ ও অন্যান্য স্থানীয় প্রতিষ্ঠানের তথ্য যোগ করা যাবে।</p></div>
-<div class="item"><b>☎️ জরুরি যোগাযোগ</b><p>প্রয়োজনীয় ফোন নম্বর ও সেবার তথ্য এখানে প্রকাশ করা যাবে।</p></div>
+
+<div class="item">
+<h3>🏫 প্রাথমিক বিদ্যালয়</h3>
+<p>আমাদের এলাকায় মোট <b>২টি প্রাথমিক বিদ্যালয়</b> রয়েছে।</p>
+<ul>
+<li>১৭ নং দক্ষিণ কেবল নগর প্রাথমিক বিদ্যালয়</li>
+<li>শিকদার কান্দি প্রাথমিক বিদ্যালয়</li>
+</ul>
+</div>
+
+<div class="item">
+<h3>🕌 জামে মসজিদ</h3>
+<p>আমাদের এলাকায় মোট <b>৬টি জামে মসজিদ</b> রয়েছে।</p>
+<p>এগুলো এলাকার গুরুত্বপূর্ণ ধর্মীয় ও সামাজিক প্রতিষ্ঠান।</p>
+</div>
+
+<div class="item">
+<h3>🛍️ কডার বাজার</h3>
+<p><b>কডার বাজার</b> আমাদের এলাকার একটি বিখ্যাত ও পরিচিত নাম।</p>
+<p>এটি এলাকার মানুষের কাছে একটি পরিচিত ও গুরুত্বপূর্ণ স্থান।</p>
+</div>
+
+<div class="item">
+<h3>🌳 বুড়ির বটতলা</h3>
+<p><b>বুড়ির বটতলা</b> আমাদের এলাকার একটি পরিচিত ও গুরুত্বপূর্ণ স্থান।</p>
+<p>স্থানীয় মানুষের কাছে এটি একটি পরিচিত নাম ও স্থান।</p>
+</div>
+
+<div class="item">
+<h3>🏥 স্বাস্থ্যসেবা</h3>
+<p>এলাকার হাসপাতাল, ক্লিনিক, ফার্মেসি ও জরুরি স্বাস্থ্যসেবার তথ্য এখানে প্রকাশ করা যাবে।</p>
+</div>
+
+<div class="item">
+<h3>☎️ জরুরি যোগাযোগ</h3>
+<p>প্রয়োজনীয় ফোন নম্বর ও জরুরি সেবার তথ্য এখানে প্রকাশ করা যাবে।</p>
+</div>
+
 </div>
 </section>
 </div>
-<footer>Web Creator : Helal Ahmed</footer>
+
+<footer>
+<div><b>দক্ষিণ কেবল নগর হিউম্যান অথরিটি</b></div>
+<div style="margin-top:8px;">স্থাপিত — ২০২৬</div>
+<div style="margin-top:8px;">© ২০২৬ দক্ষিণ কেবল নগর হিউম্যান অথরিটি</div>
+<div style="margin-top:8px;font-size:13px;color:#cbd5e1;">ওয়েবসাইট নির্মাতা : Helal Ahmed</div>
+</footer>
 
 <script>
 const get=(k)=>JSON.parse(localStorage.getItem(k)||"[]");
+
 function renderNews(){
- const list=get("dkn_news"); const box=document.getElementById("newsList");
- box.innerHTML=list.length?list.map(n=>`<div class="news"><h3>${esc(n.title)}</h3><p>${esc(n.body)}</p><small class="muted">${esc(n.date)}</small></div>`).join(""):"<p class='muted'>এখনও কোনো নিউজ প্রকাশ করা হয়নি। Admin Panel থেকে নিউজ যোগ করুন।</p>";
+ const list=get("dkn_news");
+ const box=document.getElementById("newsList");
+ box.innerHTML=list.length
+ ?list.map(n=>`<div class="news"><h3>${esc(n.title)}</h3><p>${esc(n.body)}</p><small class="muted">${esc(n.date)}</small></div>`).join("")
+ :" <p class='muted'>এখনও কোনো নিউজ প্রকাশ করা হয়নি। Admin Panel থেকে নিউজ যোগ করুন।</p>";
 }
-function esc(s){return String(s||"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]))}
-document.getElementById("memberForm").onsubmit=e=>{e.preventDefault();let a=get("dkn_members");a.push({name:mname.value,phone:mphone.value,address:maddress.value,job:mjob.value,date:new Date().toLocaleString("bn-BD")});localStorage.setItem("dkn_members",JSON.stringify(a));e.target.reset();memberMsg.textContent="✅ সদস্য আবেদন গ্রহণ করা হয়েছে।";};
-document.getElementById("complaintForm").onsubmit=e=>{e.preventDefault();let a=get("dkn_complaints");a.push({type:ctype.value,location:clocation.value,desc:cdesc.value,name:cname.value,phone:cphone.value,date:new Date().toLocaleString("bn-BD")});localStorage.setItem("dkn_complaints",JSON.stringify(a));e.target.reset();complaintMsg.textContent="✅ অভিযোগ গ্রহণ করা হয়েছে। অ্যাডমিন যাচাই করবেন।";};
+
+function esc(s){
+ return String(s||"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]));
+}
+
+document.getElementById("memberForm").onsubmit=e=>{
+ e.preventDefault();
+ let a=get("dkn_members");
+ a.push({
+  name:document.getElementById("mname").value,
+  phone:document.getElementById("mphone").value,
+  address:document.getElementById("maddress").value,
+  job:document.getElementById("mjob").value,
+  date:new Date().toLocaleString("bn-BD")
+ });
+ localStorage.setItem("dkn_members",JSON.stringify(a));
+ e.target.reset();
+ document.getElementById("memberMsg").textContent="✅ সদস্য আবেদন গ্রহণ করা হয়েছে।";
+};
+
+document.getElementById("complaintForm").onsubmit=e=>{
+ e.preventDefault();
+ let a=get("dkn_complaints");
+ a.push({
+  type:document.getElementById("ctype").value,
+  location:document.getElementById("clocation").value,
+  desc:document.getElementById("cdesc").value,
+  name:document.getElementById("cname").value,
+  phone:document.getElementById("cphone").value,
+  date:new Date().toLocaleString("bn-BD")
+ });
+ localStorage.setItem("dkn_complaints",JSON.stringify(a));
+ e.target.reset();
+ document.getElementById("complaintMsg").textContent="✅ অভিযোগ গ্রহণ করা হয়েছে। অ্যাডমিন যাচাই করবেন।";
+};
+
 renderNews();
 </script>
 </body>
